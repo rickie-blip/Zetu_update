@@ -5,7 +5,7 @@ import { AppModule } from './app.module';
 import { APP_CONFIG } from './config/shopify.config';
 
 async function bootstrap(): Promise<void> {
-  // Create Nest application with structured logging enabled.
+  // Nest application with structured logging enabled.
   const app = await NestFactory.create(AppModule, {
     logger: ['log', 'error', 'warn', 'debug'],
   });
@@ -19,7 +19,7 @@ async function bootstrap(): Promise<void> {
     }),
   );
 
-  const port = APP_CONFIG.port;
+  const {port} = APP_CONFIG;
   await app.listen(port);
 
   const logger = new Logger('Bootstrap');
